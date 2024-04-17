@@ -1,0 +1,12 @@
+   <body>
+     <h1>skills</h1>
+     <ul>
+       <% skills.forEach(function(t) { %>
+        <li>
+           <a href="/skills/<%= t.id %>"><%= t.skill %></a>
+             - 
+           <%= t.done ? 'done' : 'not done' %>
+         </li>
+       <% }); %>
+     </ul>
+   </body>
