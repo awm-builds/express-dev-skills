@@ -1,7 +1,7 @@
 // controllers/skills.js
 
   // Convention is to name the model in uppercase and singular
-  const skill = require('../models/skill');
+  const Skill = require('../models/skill');
 
   module.exports = {
       index,
@@ -10,12 +10,12 @@
 
   function index(req, res) {
     res.render('skills/index', {
-      skills: skill.getAll()
+      skills: Skill.getAll()
     });
 }
   
 function show(req, res) {
   res.render('skills/show', {
-    skills: skill.getOne(req.params.id),
+    skills: Skill.getOne(req.params.id),
   });
 }
