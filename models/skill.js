@@ -1,13 +1,31 @@
-  const skills = [
-    {id: 1234, skill: 'Organization', done: true},
-    {id: 5678, skill: 'Time Management', done: false},
-    {id: 2468, skill: 'Critical Thinking', done: false}
-  ];
+const skills = [
+  {id: 125223, skill: 'Organization', done: true},
+  {id: 127904, skill: 'Communication', done: false},
+  {id: 139608, skill: 'Problem-solving', done: false}
+];
 	
   module.exports = {
   getAll,
-  getOne
+  getOne,
+  create,
+  deleteOne
 };
+
+function deleteOne(id) {
+  // All properties attached to req.params are strings!
+  id = parseInt(id);
+  // Find the index based on the id of the skill object
+  const idx = skills.findIndex(skill => skill.id === id);
+  skills.splice(idx, 1);
+}
+
+function create(skill) {
+  // Add the id
+  skill.id = Date.now() % 1000000;
+  // New skills wouldn't be done :)
+  skill.done = false;
+  skills.push(skill);
+}
 
 function getOne(id) {
   // URL params are strings - convert to a number
